@@ -66,7 +66,7 @@ public class Main {
                 System.out.println(lastMemberId + "번 회원이 가입 되었습니다.");
                 lastMemberId++;
                 }
-            else if (cmd.equals("aw")) { // article write
+            else if (cmd.equals("article write")) { // article write
                 System.out.println("== 게시글 작성 ==");
                 int id = lastArticleId++ ;
 
@@ -85,7 +85,7 @@ public class Main {
                 System.out.printf("%d번 글이 작성되었습니다.\n", id);
                 lastArticleId++;
 
-            } else if (cmd.equals("al")) { // article list
+            } else if (cmd.equals("article list")) { // article list
                 System.out.println("== 게시물 목록 ==");
                 if (articles.size() == 0) {
                     System.out.println("게시글이 존재하지 않습니다.");
@@ -119,9 +119,9 @@ public class Main {
                     }
                 }
             }
-            else if (cmd.startsWith("ad")) { // article delete
+            else if (cmd.startsWith("article delete")) { // article delete
                 System.out.println("== 게시글 삭제 ==");
-                int id = Integer.parseInt(cmd.split(" ")[1]);
+                int id = Integer.parseInt(cmd.split(" ")[2]);
 
                 Article foundArticle = getArticeById(id);
 
@@ -132,9 +132,9 @@ public class Main {
                 articles.remove(foundArticle);
                 System.out.println(id + "번 게시글이 삭제되었습니다.");
 
-            } else if (cmd.startsWith("am")) { // article modify
+            } else if (cmd.startsWith("article modify")) { // article modify
                 System.out.println("== 게시글 수정 ==");
-                int id = Integer.parseInt(cmd.split(" ")[1]);
+                int id = Integer.parseInt(cmd.split(" ")[2]);
 
                 Article foundArticle = getArticeById(id);
 
@@ -157,7 +157,7 @@ public class Main {
                 foundArticle.setUpdateDate(Util.getNowStr());
                 System.out.println(id + "번 게시글이 수정되었습니다.");
 
-            } else if (cmd.startsWith("adt")) { // article detail
+            } else if (cmd.startsWith("article detail")) { // article detail
                 System.out.println("== 게시글 상세보기 ==");
                 int id = Integer.parseInt(cmd.split(" ")[1]);
 
