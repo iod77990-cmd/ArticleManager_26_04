@@ -4,7 +4,7 @@ package org.example.ArticleManager;
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("article write, article list, article delete, article detail, article modify, member join, member login, member logout, article list N (searching article)");
+        System.out.printf("command list: article write\n, article list\n, article delete\n, article detail\n, article modify\n, member join\n, member login\n, member logout\n, article list N (searching article)\n");
         new App().run();
     }
 }
