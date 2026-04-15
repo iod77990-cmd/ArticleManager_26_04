@@ -1,15 +1,12 @@
-package org.example;
+package org.example.dto;
 
-public class Member {
+public class Member extends Dto {
 
-    private int id;
-    private String regDate;
-    private String updateDate;
     private String loginId;
     private String loginPw;
     private String name;
 
-    public Member(int id, String regDate, String updateDate, String loginId, String loginPw, String name) {
+    public Member (int id, String regDate, String updateDate, String loginId, String loginPw, String name) {
         this.id = id;
         this.regDate = regDate;
         this.updateDate = updateDate;
@@ -65,5 +62,4 @@ public class Member {
     public void setName(String body) {
         this.loginPw = name;
     }
-
 }
