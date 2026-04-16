@@ -4,6 +4,7 @@ import org.example.dto.Article;
 import org.example.controller.ArticleController;
 import org.example.controller.Controller;
 import org.example.controller.MemberController;
+import org.example.dto.Member;
 
 import java.util.Scanner;
 
@@ -25,6 +26,25 @@ public class App {
         while (true) {
             System.out.print("명령어 > ");
             String cmd = sc.nextLine().trim();
+
+            if(cmd.equals("member profile")){
+                if(loginedMember.Id == Member.getId()){
+                    System.out.println("이름" + Member.getName());
+                    System.out.println("아이디" + Member.getId());
+                    System.out.println("작성한 글" + Article.getTitle());
+                    System.out.println("작성한 내용" + Article.getBody());
+                }
+            }
+
+            if(cmd.equals("member modify")){
+
+
+            }
+
+            if(cmd.equals("member quit")){
+
+
+            }
 
             if (cmd.equals("exit")) { // exit
                 break;

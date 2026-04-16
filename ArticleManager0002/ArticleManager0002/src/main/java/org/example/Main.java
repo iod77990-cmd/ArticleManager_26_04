@@ -30,7 +30,7 @@ public class Main {
                 continue;
             }
 
-            if (cmd.equals("mj")) { // member join
+            if (cmd.equals("member join")) { // member join
                 System.out.println("== 회원 가입 ==");
                 int id = lastMemberId + 1;
                 String loginId = null;
@@ -68,7 +68,7 @@ public class Main {
                 }
             else if (cmd.equals("article write")) { // article write
                 System.out.println("== 게시글 작성 ==");
-                int id = lastArticleId++ ;
+                int id = ++lastArticleId;
 
                 System.out.print("제목 : ");
                 String title = sc.nextLine().trim();
@@ -85,7 +85,7 @@ public class Main {
                 System.out.printf("%d번 글이 작성되었습니다.\n", id);
                 lastArticleId++;
 
-            } else if (cmd.equals("article list")) { // article list
+            } else if (cmd.startsWith("article list")) { // article list
                 System.out.println("== 게시물 목록 ==");
                 if (articles.size() == 0) {
                     System.out.println("게시글이 존재하지 않습니다.");
@@ -110,8 +110,8 @@ public class Main {
                     }
                 }
                 System.out.println(" 번호  |  날짜  |  제목  |  내용  ");
-                for (int i = articles.size() - 1; i >= 0; i--) {
-                    Article article = articles.get(i);
+                for (int i = forPrintArticles.size() - 1; i >= 0; i--) {
+                    Article article = forPrintArticles.get(i);
                     if (Util.getNowStr().split(" ")[0].equals(article.getRegDate().split(" ")[0])) {
                         System.out.printf(" %d  |  %s  |  %s  |  %s  \n", article.getId(), article.getRegDate().split(" ")[1], article.getTitle(), article.getBody());
                     } else {
@@ -299,42 +299,42 @@ class Article {
 
     public int getId() {
         return id;
-    }
-
-    public String getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(String regDate) {
-        this.regDate = regDate;
-    }
-
-    public String getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(String updateDate) {
-        this.updateDate = updateDate;
-    }
+    } // id getter
 
     public void setId(int id) {
         this.id = id;
-    }
+    } // id setter
+
+    public String getRegDate() {
+        return regDate;
+    } // regdate getter
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
+    } // regdate setter
+
+    public String getUpdateDate() {
+        return updateDate;
+    } // updatedate getter
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
+    } // updatedate setter
 
     public String getTitle() {
         return title;
-    }
+    } // title getter
 
     public void setTitle(String title) {
         this.title = title;
-    }
+    } // title setter
 
     public String getBody() {
         return body;
-    }
+    } // body getter
 
     public void setBody(String body) {
         this.body = body;
-    }
+    } // body setter
 
 }
